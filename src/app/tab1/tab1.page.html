@@ -15,54 +15,42 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Juegos de alasita</ion-card-subtitle>
-      <ion-card-title>Mayor Menor</ion-card-title>
+      <ion-card-subtitle>Aplicación para la Tierra fantástica de Oz</ion-card-subtitle>
+      <ion-card-title>Cacho Raro</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
       
-      <div>
-        Elige:
-        <ion-button color="secondary" [disabled]="eleccion !== ''" (click)="elegirOpcion('menor')">Menor</ion-button>
-        <ion-button color="secondary" [disabled]="eleccion !== ''" (click)="elegirOpcion('casa')">Casa</ion-button>
-        <ion-button color="secondary" [disabled]="eleccion !== ''" (click)="elegirOpcion('mayor')">Mayor</ion-button>
-      </div>
       
-      <!-- <div *ngIf="eleccion.length > 0">
-        Elegiste {{ eleccion }}
-      </div> -->
       
       <ion-item>
-        <ion-label>Dado 1</ion-label>
+        <ion-label color="primary">Dado raro 1 = </ion-label>
         <ion-input [(ngModel)]="dado1" type="number" value="0"></ion-input>
       </ion-item>
       
       <ion-item>
-        <ion-label>Dado 2</ion-label>
+        <ion-label color="danger">Dado raro 2 = </ion-label>
         <ion-input [(ngModel)]="dado2" type="number" value="0"></ion-input>
       </ion-item>
 
-      <ion-button color="primary" (click)="calcularSuma()" expand="block" fill="outline">Jugar</ion-button>
+      <ion-item>
+        <ion-label color="success">Dado raro 3 = </ion-label>
+        <ion-input [(ngModel)]="dado3" type="number" value="0"></ion-input>
+      </ion-item>
 
-      <div *ngIf="suma > 0" class="resultadodados">
-        {{ suma }}
-      </div>
-      
-      <div *ngIf="suma >= 2 && suma <= 6" class="resultadotexto">
-        Ganó Menor
-      </div>
-      <div *ngIf="suma > 7" class="resultadotexto">
-        Ganó Mayor
-      </div>
-      <div *ngIf="suma == 7" class="resultadotexto">
-        Ganó casa
-      </div>
+      <ion-item>
+        <ion-label color="warning">Dado raro 4 = </ion-label>
+        <ion-input [(ngModel)]="dado4" type="number" value="0"></ion-input>
+      </ion-item>
 
-      <div class="ganar" *ngIf="resultado.length > 0 && resultado === eleccion">
+      <ion-button color="primary" (click)="verificarSimilitud()" expand="block" fill="outline">Lanzar</ion-button>
+
+
+      <div class="ganar" *ngIf="resultado.length > 0 && resultado === 'si'">
         Ganaste! :)
       </div>
 
-      <div class="perder" *ngIf="resultado.length > 0 && resultado !== eleccion">
+      <div class="perder" *ngIf="resultado.length > 0 && resultado === 'no'">
         Perdiste! :(
       </div>
 
